@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Iniciar Sesión - ProAdolecencia</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;700&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: #fffafc;
+      color: #333;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0;
+      transition: background 0.3s, color 0.3s;
+    }
+    form {
+      background: #ffe9f0;
+      border: 2px dashed #f7a4c1;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 0 15px rgba(247, 164, 193, 0.5);
+      width: 100%;
+      max-width: 400px;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      color: #d65d84;
+      font-weight: 700;
+    }
+    input {
+      border-radius: 0.5rem;
+      border: 1.5px solid #f7a4c1;
+      padding: 0.75rem;
+      margin-bottom: 1rem;
+      width: 100%;
+      font-size: 1rem;
+      transition: border-color 0.3s;
+    }
+    input:focus {
+      border-color: #d65d84;
+      outline: none;
+      box-shadow: 0 0 8px #f7a4c1;
+    }
+    button {
+      background: #d65d84;
+      border: none;
+      width: 100%;
+      padding: 0.75rem;
+      font-size: 1.1rem;
+      color: white;
+      border-radius: 0.5rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background: #bf4f74;
+    }
+    p {
+      text-align: center;
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      color: #666;
+    }
+    a {
+      color: #d65d84;
+      text-decoration: none;
+      font-weight: 700;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body class="fondo-rosa">
+  <form onsubmit="login(event)">
+    <h2>Iniciar Sesión</h2>
+    <input type="email" id="email" placeholder="Correo electrónico" required />
+    <input type="password" id="password" placeholder="Contraseña" required />
+    <button type="submit">Entrar</button>
+    <p>
+      ¿No tenés cuenta? <a href="registro.html">Registrate</a>
+    </p>
+  </form>
+  <script type="module" src="main.js"></script>
+
+  <script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyBfskAISSZIoLXVJ-eXNV9NMIGwDbpVEVI",
+    authDomain: "proaadolecencia.firebaseapp.com",
+    projectId: "proaadolecencia",
+    storageBucket: "proaadolecencia.firebasestorage.app",
+    messagingSenderId: "1064308287093",
+    appId: "1:1064308287093:web:81ee350be5be9bbc243a3c"
+  };
+
+  // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    window.login = (e) => {
+      e.preventDefault();
+
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+
+      signInWithEmailAndPassword(auth, email, password)
+        .then(() => {
+          alert("Sesión iniciada");
+          window.location.href = "home.html";
+        })
+        .catch((err) => {
+          alert("Error: " + err.message);
+        });
+    };
+  import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+  import { app } from "./firebase.js"; // Asegurate de importar tu firebase.js correctamente
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      window.location.href = "index.html"; // Si ya está logueado, lo mando directo
+    }
+  });
+  </script>
+</body>
+</html>

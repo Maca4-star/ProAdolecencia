@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ProAdolecencia</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;700&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Nunito', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #fffafc;
+      color: #333;
+      transition: background 0.3s, color 0.3s;
+    }
+    header {
+      background: #f8c8dc;
+      padding: 1rem;
+      text-align: center;
+      font-size: 2rem;
+      font-weight: bold;
+      border-bottom: 2px solid #e48cb0;
+      position: relative;
+    }
+    nav {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      padding: 2rem;
+    }
+    nav a {
+      text-decoration: none;
+      padding: 1rem;
+      border: 2px dashed #f7a4c1;
+      border-radius: 1rem;
+      background: #ffe9f0;
+      color: #222;
+      transition: all 0.2s;
+    }
+    nav a:hover {
+      background: #f7a4c1;
+      color: white;
+    }
+    .section-desc {
+      font-size: 0.9rem;
+      margin-top: 0.3rem;
+      color: #555;
+    }
+    footer {
+      padding: 1rem;
+      text-align: center;
+      font-size: 0.8rem;
+      color: #888;
+    }
+    /* Botón rosa login */
+    #btn-login {
+      position: absolute;
+      top: 50%;
+      right: 1rem;
+      transform: translateY(-50%);
+      background: #d65d84;
+      color: white;
+      border: none;
+      padding: 0.4rem 1rem;
+      border-radius: 0.6rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    #btn-login:hover {
+      background: #bf4f74;
+    }
+    @media (min-width: 600px) {
+      nav {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      nav a {
+        width: 200px;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  
+  <header>
+    ProAdolecencia
+    <button id="btn-login">Iniciar Sesión</button>
+  </header>
+  <nav>
+    <a href="posteos.html">
+      Posteos
+      <div class="section-desc">Publicá cosas, comentá y gastá tu batería social 💬🔋</div>
+    </a>
+    <a href="escolar.html">
+      Escolar
+      <div class="section-desc">Cositas útiles para el cole 📚📅</div>
+    </a>
+    <a href="personal.html">
+      Personal
+      <div class="section-desc">Notas, pensamientos, ideas y boludeces 🧠</div>
+    </a>
+    <a href="promo.html">
+      Promo
+      <div class="section-desc">Una publicación final por año + recuento de fotos 📸🎓</div>
+    </a>
+    <a href="eventos.html">
+      Eventos
+      <div class="section-desc">Temáticas: fechas patrias, Halloween, etc 🎉🎭</div>
+    </a>
+    <a href="creadores.html">
+      Creadores
+      <div class="section-desc">
+        Holaa, es un placer darles la bienvenida a esta página ;)  
+        Maca y Andy
+      </div>
+    </a>
+  </nav>
+  <footer>&copy; 2025 Proadolecencia</footer>
+
+  <script>
+    document.getElementById('btn-login').addEventListener('click', () => {
+      window.location.href = 'login.html';
+    });
+  </script>
+</body>
+</html>
