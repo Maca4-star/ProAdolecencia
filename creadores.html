@@ -13,19 +13,29 @@
       background-color: #fffafc;
       color: #333;
     }
+    
+header {
+  position: fixed;   /* se queda fijo arriba */
+  top: 0;
+  left: 0;
+  width: 100%;       /* ocupa todo el ancho */
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  background: #e48cb0;;
+  color: white;
+  padding: 1rem;
+  z-index: 999;      /* se pone encima de la sidebar */
+  box-shadow: 0 2px 8px rgba(0,0,0,.1);
+}
+.sidebar h2 {
+  margin-top: 4rem; /* lo empuja para abajo */
+}
 
-    header {
-      background: #f8c8dc;
-      padding: 1rem;
-      text-align: center;
-      font-size: 2rem;
-      font-weight: bold;
-      border-bottom: 2px solid #e48cb0;
-    }
 
-    main {
-      padding: 2rem;
-    }
+main {
+  padding: 6rem 2rem 2rem; /* agrega espacio arriba para que no se tape */
+}
 
     .intro {
       font-size: 1.1rem;
@@ -65,9 +75,65 @@
     a:hover {
       text-decoration: underline;
     }
+    :root{
+      --pink:#d65d84;
+      --pink-600:#c04a73;
+      --bg:#ffe9f0;
+      --card:#ffffff;
+      --soft:#ffe0eb;
+      --text:#333;
+      --muted:#666;
+      --ring: rgba(214,93,132,.35);
+    }
+    *{box-sizing:border-box}
+    body{font-family:'Nunito',sans-serif;background:var(--bg);margin:0;padding:0;color:var(--text);display:flex;}
+
+    /* Menú lateral */
+    .sidebar{
+      width:220px;
+      background:var(--card);
+      padding:1.5rem 1rem;
+      box-shadow:2px 0 10px rgba(214,93,132,.2);
+      display:flex;
+      flex-direction:column;
+      gap:1rem;
+      position:sticky;
+      top:0;
+      height:100vh;
+    }
+    .sidebar h2{
+      font-size:1.3rem;
+      color:var(--pink);
+      margin-bottom:.5rem;
+    }
+    .nav-link{
+      padding:.7rem 1rem;
+      border-radius:.8rem;
+      text-decoration:none;
+      font-weight:700;
+      color:var(--text);
+      display:block;
+    }
+    .nav-link:hover{background:var(--soft);color:var(--pink-600)}
+
+    .container{max-width:760px;margin:auto;padding:2rem;flex:1;}
+
+ 
   </style>
 </head>
+
 <body>
+  <nav class="sidebar">
+    <h2>Menú</h2>
+    <a class="nav-link" href="index.html">Inicio</a>
+    <a class="nav-link" href="personal.html">Personal</a>
+    <a class="nav-link" href="comunidad.html">Comunidad!</a>
+    <a class="nav-link" href="promo.html">Promo</a>
+    <a class="nav-link" href="eventos.html">Eventos📅</a>
+    <a class="nav-link" href="creadores.html">Creadores</a>
+  </nav>
+  
+
   <header>Creadores</header>
   <main>
     <div class="intro">
@@ -80,7 +146,7 @@
         <p><strong>Escuela:</strong> ProA Cruz del Eje</p>
         <p><strong>Cumpleaños:</strong> 30/09</p>
         <p><strong>Instagram:</strong> <a href="https://instagram.com/addicto.coffee" target="_blank">@addicto.coffee</a></p>
-        <p><strong>Descripción:</strong> Creo que me circula más café q sangre...</p>
+        <p><strong>Descripción:</strong> Con ganas de un café nomás :b</p>
       </div>
       <div class="creator">
         <h2>Maca</h2>
@@ -93,5 +159,4 @@
     </div>
   </main>
 </body>
-
 </html>
